@@ -4,6 +4,7 @@ var pomodoros = 0;
 $(document).ready(function() {
 	$('#runner').runner({
 		startAt: 5000,//1000*60*25,
+		milliseconds: false,
 		stopAt: 0,
 		countdown: true
 	}).on('runnerFinish', function() {
@@ -11,6 +12,7 @@ $(document).ready(function() {
 		console.log(pomodoros);
 		$('#runner').runner({
 			startAt: 5000,//1000*60*25,
+			milliseconds: false,
 			stopAt: 0,
 			countdown: true,
 			autostart: true
