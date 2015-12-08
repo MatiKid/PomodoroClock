@@ -3,15 +3,16 @@ var pomodoros = 0;
 
 $(document).ready(function() {
 	$('#runner').runner({
-		startAt: 5000,//1000*60*25,
+		startAt: 5000, //1000*60*25,
 		milliseconds: false,
 		stopAt: 0,
 		countdown: true
 	}).on('runnerFinish', function() {
 		pomodoros++;
+		updatePomodoroNum(pomodoros);
 		console.log(pomodoros);
 		$('#runner').runner({
-			startAt: 5000,//1000*60*25,
+			startAt: 5000, //1000*60*25,
 			milliseconds: false,
 			stopAt: 0,
 			countdown: true,
@@ -26,4 +27,8 @@ $(document).ready(function() {
 	$('#stop').click(function() {
 		$('#runner').runner('stop');
 	});
+
+	function updatePomodoroNum(pomodoroNum) {
+		$('#pomodoroNum').text('Pomodoro #' + pomodoroNum);
+	}
 });
