@@ -10,7 +10,6 @@ $(document).ready(function() {
 	}).on('runnerFinish', function() {
 		pomodoros++;
 		updatePomodoroNum(pomodoros);
-		console.log(pomodoros);
 		$('#runner').runner({
 			startAt: 5000, //1000*60*25,
 			milliseconds: false,
@@ -20,13 +19,18 @@ $(document).ready(function() {
 		});
 	})
 
-	$('#start').click(function() {
-		$('#runner').runner('start');
+	$('#main-btn').click(function() {
+		$('#runner').runner('toggle');
+
+		if($(this).text() === 'Start') {
+			$(this).text('Pause');
+		} else if($(this).text() === 'Pause') {
+			$(this).text('Resume');
+		} else if($(this).text() === 'Resume') {
+			$(this).text('Pause');
+		}
 	});
 
-	$('#stop').click(function() {
-		$('#runner').runner('stop');
-	});
 
 	function updatePomodoroNum(pomodoroNum) {
 		$('#pomodoroNum').text('Pomodoro #' + pomodoroNum);
