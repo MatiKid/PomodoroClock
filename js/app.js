@@ -1,4 +1,5 @@
 var pomodoros = 1;
+var loop = 1;
 
 
 $(document).ready(function() {
@@ -8,13 +9,23 @@ $(document).ready(function() {
 		stopAt: 0,
 		countdown: true
 	}).on('runnerFinish', function(eventObject, info) {
-		console.log(eventObject);
-		console.log(info);
-		pomodoros++;
-		updatePomodoroNum(pomodoros);
 
-		info.settings.autostart = true;
-		$('#runner').runner('start');
+		if(loop % 2 === 0) {
+			pomodoros++;
+			loop++;
+			$('#pomodoroNum').text('Pomodoro #' + pomodoros);
+
+			info.settings.autostart = true;
+			info.settings.startAt = 10000;
+			$('#runner').runner('start');	
+		} else if (loop % 2 !== 0) {
+			loop++;
+			$('#pomodoroNum').text('Break');
+
+			info.settings.autostart = true;
+			info.settings.startAt = 5000;
+			$('#runner').runner('start');
+		};
 	});
 
 	$('#main-btn').click(function() {
@@ -28,8 +39,4 @@ $(document).ready(function() {
 			$(this).text('Pause');
 		}
 	});
-
-	function updatePomodoroNum(pomodoroNum) {
-		$('#pomodoroNum').text('Pomodoro #' + pomodoroNum);
-	};
 });
