@@ -1,23 +1,21 @@
-var pomodoros = 0;
+var pomodoros = 1;
 
 
 $(document).ready(function() {
 	$('#runner').runner({
-		startAt: 5000, //1000*60*25,
+		startAt: 10000, //1000*60*25,
 		milliseconds: false,
 		stopAt: 0,
 		countdown: true
-	}).on('runnerFinish', function() {
+	}).on('runnerFinish', function(eventObject, info) {
+		console.log(eventObject);
+		console.log(info);
 		pomodoros++;
 		updatePomodoroNum(pomodoros);
-		$('#runner').runner({
-			startAt: 5000, //1000*60*25,
-			milliseconds: false,
-			stopAt: 0,
-			countdown: true,
-			autostart: true
-		});
-	})
+
+		info.settings.autostart = true;
+		$('#runner').runner('start');
+	});
 
 	$('#main-btn').click(function() {
 		$('#runner').runner('toggle');
@@ -31,8 +29,7 @@ $(document).ready(function() {
 		}
 	});
 
-
 	function updatePomodoroNum(pomodoroNum) {
 		$('#pomodoroNum').text('Pomodoro #' + pomodoroNum);
-	}
+	};
 });
