@@ -1,7 +1,10 @@
+// Uses Jquery-Runner library for timer
+// https://github.com/jylauril/jquery-runner
+
 var pomodoros = 1;
 var loop = 1;
 var pomodoroLength = 10000//25 * 60 * 1000;
-var breakLength = 5000//2 * 60 * 1000;
+var breakLength = 5000//5 * 60 * 1000;
 
 
 $(document).ready(function() {
