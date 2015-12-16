@@ -6,34 +6,39 @@ var breakLength = 5000//2 * 60 * 1000;
 
 $(document).ready(function() {
 
+	// Sets timer inital parameters
 	$('#runner').runner({
 		startAt: pomodoroLength,
 		milliseconds: false,
 		stopAt: 0,
 		countdown: true
+		// After first timer cycle
 	}).on('runnerFinish', function(eventObject, info) {
 
+		// Loop keeps track of Pomodoro - Break order
 		if(loop % 2 === 0) {
+			// Pomodoro
 			pomodoros++;
 			loop++;
 			
 			$('#pomodoroNum').text('Pomodoro #' + pomodoros);
+			// Creates Reset button if it doesn't exist
 			if(!$('#reset').length) {
 				$('#buttons').append('<button id="reset">Reset</button>');
 			}
 
 			info.settings.startAt = pomodoroLength;
 
+			// Check 'Start Next Pomodoro Automatically' option
 			if($('#automatic-cycle').is(':checked')) {
-				console.log('checked');
 				$('#runner').runner('start');
 			} else {
-				console.log('NOT checked');
 				$('#runner').runner('reset');
 				$('#main-btn').text('Start');
 			};
 				
 		} else if (loop % 2 !== 0) {
+			// Break
 			loop++;
 
 			$('#pomodoroNum').text('Break');
@@ -44,11 +49,12 @@ $(document).ready(function() {
 		};
 	});
 
-
+	//Changes main button text and functionality
 	$('#main-btn').click(function() {
 		if($(this).text() === 'Start') {
 			$(this).text('Pause');
 			$('#runner').runner('start');
+			// Creates the first Reset button
 			if(!$('#reset').length) {
 				$('#buttons').append('<button id="reset">Reset</button>');
 			}
@@ -61,11 +67,13 @@ $(document).ready(function() {
 		}
 	});
 
+	// Watch Reset button
 	$('#buttons').on('click', '#reset', function() {
 		$('#runner').runner('reset', true);
 		$('#main-btn').text('Start');
 	});
 
+	// Set custom lengths for Pomodoros and Breaks
 	$('#set-pomodoro-length').click(function() {
 		var pomodoroLengthInput = parseInt($('#pomodoro-length').val());
 		if(!isNaN(pomodoroLengthInput)) {
