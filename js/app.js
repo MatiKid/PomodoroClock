@@ -23,14 +23,15 @@ $(document).ready(function() {
 			}
 
 			info.settings.startAt = pomodoroLength;
-			$('#runner').runner('start');
 
-			// if($('#automatic-cycle').is(':checked')) {
-			// 	console.log('checked');
-			// } else {
-			// 	$('#runner').runner('start');
-			// 	console.log('NOT checked');
-			// };
+			if($('#automatic-cycle').is(':checked')) {
+				console.log('checked');
+				$('#runner').runner('start');
+			} else {
+				console.log('NOT checked');
+				$('#runner').runner('reset');
+				$('#main-btn').text('Start');
+			};
 				
 		} else if (loop % 2 !== 0) {
 			loop++;
