@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$('#pomodoroNum').text('Pomodoro #' + pomodoros);
 			// Creates Reset button if it doesn't exist
 			if(!$('#reset').length) {
-				$('#buttons').append('<button id="reset">Reset</button>');
+				$('#buttons').append('<button class="btn btn-warning btn-lg" id="reset">Reset</button>');
 			}
 
 			info.settings.startAt = pomodoroLength;
@@ -59,7 +59,7 @@ $(document).ready(function() {
 			$('#runner').runner('start');
 			// Creates the first Reset button
 			if(!$('#reset').length) {
-				$('#buttons').append('<button id="reset">Reset</button>');
+				$('#buttons').append('<button class="btn btn-warning btn-lg" id="reset">Reset</button>');
 			}
 		} else if($(this).text() === 'Pause') {
 			$(this).text('Resume');
