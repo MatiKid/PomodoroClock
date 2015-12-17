@@ -1,0 +1,25 @@
+/********* STYLE **********/
+body {
+	background-color: #E74C3C;
+}
+
+h1 {
+	color: #fff;
+	font-size: 3em;
+}
+
+.runner {
+	font-size: 9em;
+}
+
+.options {
+	color: #fff;
+	font-size: 1.1em;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+
+/********* LAYOUT **********/

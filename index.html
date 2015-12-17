@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Pomodoro Clock</title>
 
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/flatly/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
 	
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -14,9 +14,9 @@
 </head>
 <body>
 <div class="container text-center">
-		<h1 class="text-primary" id="pomodoroNum">Pomodoro #1</h1>
+		<h1 id="pomodoroNum">Pomodoro #1</h1>
 
-		<h1 id="runner"></h1>
+		<h1 class="runner" id="runner"></h1>
 		<br>
 		<div id="buttons">
 			<button id="main-btn" class="btn btn-primary btn-lg">Start</button>
@@ -27,13 +27,13 @@
 			<div class="form-group form-inline">
 				<label for="pomodoro-length">Pomodoro:</label>
 				<input type="text" class="form-control" id="pomodoro-length" placeholder="Set Pomodoro Length" value="25">
-				<button class="btn btn-default" id="set-pomodoro-length">Set</button>
+				<button class="btn btn-success" id="set-pomodoro-length">Set</button>
 			</div>
 			
 			<div class="form-group form-inline">
 				<label for="break-length">Break:</label>
 				<input type="text" class="form-control" id="break-length" placeholder="Set Break Length" value="5">
-				<button class="btn btn-default" id="set-break-length">Set</button>
+				<button class="btn btn-success" id="set-break-length">Set</button>
 			</div>
 			
 			<label><input type="checkbox" id="automatic-cycle" checked> Start Next Pomodoro Automatically</label>
