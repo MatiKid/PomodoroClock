@@ -102,5 +102,13 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+
+	// Shows-Hides options panel
+	$('#options-btn').click(function(e) {
+		e.preventDefault();
+		$('#options-panel').toggle('slide');
+		$('.fa-cog').toggleClass('pressed');
+	})
 });
 

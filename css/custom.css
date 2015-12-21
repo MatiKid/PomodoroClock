@@ -24,6 +24,10 @@ h1 {
 	color: #fff;
 }
 
+.pressed {
+	color: #C4351D;
+}
+
 /********* LAYOUT **********/
 
 .buttons {
@@ -31,9 +35,10 @@ h1 {
 }
 
 .options-panel {
-	margin-top: 50px;
-	display: inline-block;
+	margin-top: -40px;
+	margin-left: 90px;
     position: absolute;
+    display: none;
 }
 
 .options-panel label {
@@ -43,3 +48,11 @@ h1 {
 .fa-cog {
 	margin: 20px; 
 }
+
+/*.hide {
+	display: none;
+}
+
+.show {
+	display: inline-block;
+}*/
