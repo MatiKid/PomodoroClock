@@ -13,7 +13,6 @@ h1 {
 }
 
 .options {
-	color: #fff;
 	font-size: 1.1em;
 }
 
@@ -21,5 +20,26 @@ h1 {
   outline: none;
 }
 
+.fa-cog {
+	color: #fff;
+}
 
 /********* LAYOUT **********/
+
+.buttons {
+	margin: 30px 0;
+}
+
+.options-panel {
+	margin-top: 50px;
+	display: inline-block;
+    position: absolute;
+}
+
+.options-panel label {
+	margin-right: 5px;
+}
+
+.fa-cog {
+	margin: 20px; 
+}
