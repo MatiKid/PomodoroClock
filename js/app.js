@@ -79,7 +79,7 @@ $(document).ready(function() {
 	// Set custom lengths for Pomodoros and Breaks
 	$('#set-pomodoro-length').click(function() {
 		var pomodoroLengthInput = parseInt($('#pomodoro-length').val());
-		if(!isNaN(pomodoroLengthInput)) {
+		if(!isNaN(pomodoroLengthInput) && pomodoroLengthInput > 0) {
 			pomodoroLength = pomodoroLengthInput * 60 * 1000;
 
 			if($('#pomodoroNum').text() !== 'Break') {
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 	$('#set-break-length').click(function() {
 		var breakLengthInput = parseInt($('#break-length').val());
-		if(!isNaN(breakLengthInput)) {
+		if(!isNaN(breakLengthInput) && breakLengthInput > 0) {
 			breakLength = breakLengthInput * 60 * 1000;
 			
 			if($('#pomodoroNum').text() === 'Break') {
